@@ -1,8 +1,10 @@
 function EditClientClock(props){
 	let {userZone,userZoneDe, setFlag ,setUserTime} = props.state;
+	let id = userZoneDe.id;
 	let tittle = userZoneDe.tittle;
+	let mainUser = userZoneDe.mainUser;
     // console.log(userZoneDe)
-	let zoneOffset = {"value": userZoneDe.value, "name" : userZoneDe.name,"mainUser" : userZoneDe.mainUser}
+	let zoneOffset = {"value": userZoneDe.value, "name" : userZoneDe.name}
 	  function titleHandeler(e){
 		tittle = e.target.value;
 	  }
@@ -14,8 +16,8 @@ function EditClientClock(props){
 		event.preventDefault();
 	  }
 	  function btnClick (){
-        delete userZone[userZoneDe.tittle];
-		userZone[tittle] = {"tittle" : tittle,...zoneOffset};
+        delete userZone[id];
+		userZone[id] = {"id" : id,"tittle" : tittle, ...zoneOffset,"mainUser" : mainUser};
 		setUserTime((prvState) => {
 			return {...prvState}
 		})

@@ -6,7 +6,7 @@ function Clock(props){
     let localDate = new Date(utc +(3600000 * offset));
     // console.log(userZoneDe)
     function deleteClockHandel(){
-        delete userZone[userZoneDe.tittle];
+        delete userZone[userZoneDe.id];
     }
     useEffect(() => {
      

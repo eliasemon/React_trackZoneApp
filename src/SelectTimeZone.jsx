@@ -1,4 +1,9 @@
 function SelectTimeZone(props){
+	let uuid = () => {
+		return 'xxx-xxxxx-xxxxx-xxxxxxx-xxxxxxxxxxxxxx'.replace(/x/g, () =>{
+			return (Math.random() * 16 | 0).toString(16)
+		})
+	}
 	let {userZone,setFlag,flag, setUserTime} = props.state;
 	let tittle;
 	let zoneOffset = {"value":-12 , "name" : "Eniwetok, Kwajalein"}
@@ -17,7 +22,8 @@ function SelectTimeZone(props){
 		  if(flag === 7){
 			mainUser = true;
 		  }
-		userZone[tittle] = {"tittle" : tittle,...zoneOffset,"mainUser" : mainUser};
+		let id = uuid();
+		userZone[id] = {"id" : id, "tittle" : tittle,...zoneOffset,"mainUser" : mainUser};
 		setUserTime((prvState) => {
 			return {...prvState}
 		})
