@@ -2,7 +2,7 @@ function EditClientClock(props){
 	let {userZone,userZoneDe, setFlag ,setUserTime} = props.state;
 	let tittle = userZoneDe.tittle;
     // console.log(userZoneDe)
-	let zoneOffset = {"value": userZoneDe.value, "name" : userZoneDe.name}
+	let zoneOffset = {"value": userZoneDe.value, "name" : userZoneDe.name,"mainUser" : userZoneDe.mainUser}
 	  function titleHandeler(e){
 		tittle = e.target.value;
 	  }

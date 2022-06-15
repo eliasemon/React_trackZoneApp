@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import EditClientClock from "./EditClientClock";
 function Clock(props){
-    const {userZoneDe, userZone , setUserTime ,date,setDate} = props.state
+    const {userZoneDe, userZone ,date,setDate} = props.state
     let offset =  Number(userZoneDe.value);
     let utc = date.getTime() + date.getTimezoneOffset() * 60000;
     let localDate = new Date(utc +(3600000 * offset));
@@ -19,6 +18,7 @@ function Clock(props){
     }, [date]);
     return(
         <div>
+            {userZoneDe.mainUser === true ? (<h4>Main User Clock</h4>):""}
         <h3>{userZoneDe.tittle} </h3>
         {localDate.getHours().toString() +" : "+
             localDate.getMinutes().toString() + " : " + 
@@ -28,7 +28,7 @@ function Clock(props){
             localDate.getFullYear().toString() + " )"
         }
         <p>{userZoneDe.name}</p>
-        <button onClick={deleteClockHandel}>Delete this client</button>
+        {userZoneDe.mainUser === true ? "":(<button onClick={deleteClockHandel}>Delete this client</button>)}
         </div>
     )
 }

@@ -1,5 +1,5 @@
 function SelectTimeZone(props){
-	let {userZone,setFlag, setUserTime} = props.state;
+	let {userZone,setFlag,flag, setUserTime} = props.state;
 	let tittle;
 	let zoneOffset = {"value":-12 , "name" : "Eniwetok, Kwajalein"}
 	  function titleHandeler(e){
@@ -13,7 +13,11 @@ function SelectTimeZone(props){
 		event.preventDefault();
 	  }
 	  function btnClick (){
-		userZone[tittle] = {"tittle" : tittle,...zoneOffset};
+		  let mainUser = false;
+		  if(flag === 7){
+			mainUser = true;
+		  }
+		userZone[tittle] = {"tittle" : tittle,...zoneOffset,"mainUser" : mainUser};
 		setUserTime((prvState) => {
 			return {...prvState}
 		})
