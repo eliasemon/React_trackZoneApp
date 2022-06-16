@@ -22,13 +22,7 @@ function Clock(props){
         <div>
             {userZoneDe.mainUser === true ? (<h4>Main User Clock</h4>):""}
         <h3>{userZoneDe.tittle} </h3>
-        {localDate.getHours().toString() +" : "+
-            localDate.getMinutes().toString() + " : " + 
-            localDate.getSeconds().toString() + " ( " + 
-            localDate.getDate().toString() + " / " + 
-            (localDate.getMonth() + 1).toString() + " / " +
-            localDate.getFullYear().toString() + " )"
-        }
+        {localDate.toString().slice(0,25)}
         <p>{userZoneDe.name}</p>
         {userZoneDe.mainUser === true ? "":(<button onClick={deleteClockHandel}>Delete this client</button>)}
         </div>

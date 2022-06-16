@@ -1,5 +1,5 @@
 function ShowEvent(props){
-    let {setFlag} = props
+    let {setFlag} = props.flag
     let eventData = props.state;
     let UI = Object.keys(eventData).map((id)=>{
         let Data =  {...eventData[id]};
@@ -11,7 +11,7 @@ function ShowEvent(props){
         }
         return(
             <div style={{border : "2px solid green", marginBottom : "10px"}}>
-                <p>{Data.tittle.toString()} <br /> {Data.date.toString()}</p>
+<p>{Data.tittle.toString()} <br /> {Data.date.toString().slice(0,25)}</p>
                 <button onClick={deletehandeler}>Delete This</button>
             </div>
         )

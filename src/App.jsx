@@ -46,8 +46,8 @@ function App() {
       return (
       <div style = {UserClockStyle}>
         <Clock state = {{userZone,userZoneDe,setFlag}} />
-        {userZoneDe.eventData != undefined ?(<ShowEvent flag ={setFlag} state= {userZoneDe.eventData} />) : ""}
-        {console.log(userZoneDe.eventData)}
+        {userZoneDe.eventData != undefined ?(<ShowEvent flag ={{setFlag}} state= {userZoneDe.eventData} />) : ""}
+        {/* {console.log(userZoneDe.eventData)} */}
         <button onClick={()=>edithandle(userZoneDe)}>Edit</button>
         <button onClick={()=>addeventHandel(userZoneDe)}>Add Event</button>
       </div>) 
