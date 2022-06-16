@@ -20,11 +20,11 @@ function Clock(props){
     }, [date]);
     return(
         <div>
+            {userZoneDe.mainUser === true ? "":(<button onClick={deleteClockHandel}>Delete this client</button>)}
             {userZoneDe.mainUser === true ? (<h4>Main User Clock</h4>):""}
         <h3>{userZoneDe.tittle} </h3>
         {localDate.toString().slice(0,25)}
         <p>{userZoneDe.name}</p>
-        {userZoneDe.mainUser === true ? "":(<button onClick={deleteClockHandel}>Delete this client</button>)}
         </div>
     )
 }
