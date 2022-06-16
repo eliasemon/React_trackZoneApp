@@ -1,10 +1,12 @@
 function EditClientClock(props){
 	let {userZone,userZoneDe, setFlag ,setUserTime} = props.state;
-	let id = userZoneDe.id;
-	let tittle = userZoneDe.tittle;
-	let mainUser = userZoneDe.mainUser;
+	let {id ,tittle, mainUser} = userZoneDe;
+	let backUpuserZoneDe = {...userZoneDe}
     // console.log(userZoneDe)
 	let zoneOffset = {"value": userZoneDe.value, "name" : userZoneDe.name}
+	function cancelClick(){
+        setFlag(()=> 34)
+    }
 	  function titleHandeler(e){
 		tittle = e.target.value;
 	  }
@@ -17,10 +19,7 @@ function EditClientClock(props){
 	  }
 	  function btnClick (){
         delete userZone[id];
-		userZone[id] = {"id" : id,"tittle" : tittle, ...zoneOffset,"mainUser" : mainUser};
-		setUserTime((prvState) => {
-			return {...prvState}
-		})
+		userZone[id] = {...backUpuserZoneDe,"id" : id,"tittle" : tittle, ...zoneOffset,"mainUser" : mainUser};
         setFlag(()=>1)
 	  }
     return(
@@ -70,8 +69,10 @@ function EditClientClock(props){
 	<option value='{"value":13 , "name" : "Apia , Nukualofa"}'>(GMT +13:00) Apia, Nukualofa</option>
 	<option value='{"value":14 , "name" : "Line Islands , Tokelau"}'>(GMT +14:00) Line Islands, Tokelau</option>
 </select>
-<button onClick={btnClick}>Submit</button>
+<button type="submit" onClick={btnClick}>Submit</button>
+<button type ="cancel" onClick={cancelClick}>Cancel</button>
 </form>
+	
     )
 }
 export default EditClientClock;

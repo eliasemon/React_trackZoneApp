@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 function Clock(props){
-    const {userZoneDe, userZone ,date,setDate} = props.state
+    const [date, setDate] = useState(new Date());
+    const {userZoneDe, userZone ,setFlag} = props.state
     let offset =  Number(userZoneDe.value);
     let utc = date.getTime() + date.getTimezoneOffset() * 60000;
     let localDate = new Date(utc +(3600000 * offset));
     // console.log(userZoneDe)
     function deleteClockHandel(){
         delete userZone[userZoneDe.id];
+        setFlag(()=> 34);
     }
     useEffect(() => {
      

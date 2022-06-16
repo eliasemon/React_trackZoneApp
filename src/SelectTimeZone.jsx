@@ -1,13 +1,16 @@
 function SelectTimeZone(props){
 	let uuid = () => {
-		return 'xxx-xxxxx-xxxxx-xxxxxxx-xxxxxxxxxxxxxx'.replace(/x/g, () =>{
+		return 'xxxx-xxxxx-xxxxx-xxxxxxx-xxxxxxxxxxxxxx'.replace(/x/g, () =>{
 			return (Math.random() * 16 | 0).toString(16)
 		})
 	}
 	let {userZone,setFlag,flag, setUserTime} = props.state;
 	let tittle;
 	let zoneOffset = {"value":-12 , "name" : "Eniwetok, Kwajalein"}
-	  function titleHandeler(e){
+	function cancelClick(){
+        setFlag(()=> 34)
+    }
+		function titleHandeler(e){
 		tittle = e.target.value;
 	  }
 	  function timeZoneHandeler(e){
@@ -77,6 +80,7 @@ function SelectTimeZone(props){
 	<option value='{"value":14 , "name" : "Line Islands , Tokelau"}'>(GMT +14:00) Line Islands, Tokelau</option>
 </select>
 <button onClick={btnClick}>Submit</button>
+{flag !== 7 ? (<button type ="cancel" onClick={cancelClick}>Cancel</button>) : ""}
 </form>
     )
 }
