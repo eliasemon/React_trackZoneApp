@@ -2,7 +2,7 @@ import { useState } from "react";
 function CreatEvent(props){
     const [information , setInformation] = useState("")
     let {userZone,userZoneDe, setFlag } =  props.state;
-    let [UsereventData, setUserEventDate] =useState({});
+    let [UsereventData, setUserEventDate] =useState({"date" : undefined, "tittle" : ""});
     let uuid = () => {
 		return 'xxx-xxxxx-xxxxx-xxxxxxx-xxxxxxxxxxxxxx'.replace(/x/g, () =>{
 			return (Math.random() * 16 | 0).toString(16)
